@@ -5,7 +5,6 @@ ENV DEBIAN_FRONTEND=noninteractive \
     OCSERV_VERSION=1.3.0
 
 RUN apt-get update && \
-    apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
     build-essential pkg-config libgnutls28-dev libev-dev \
     libreadline-dev libpam0g-dev liblz4-dev libseccomp-dev \
