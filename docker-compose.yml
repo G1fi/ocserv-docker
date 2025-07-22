@@ -1,0 +1,14 @@
+services:
+  ocserv:
+    build: .
+    container_name: ocserv
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "443:443/tcp"
+      - "443:443/udp"
+    env_file:
+      - .env
+    volumes:
+      - ./config:/etc/ocserv
