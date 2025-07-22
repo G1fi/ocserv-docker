@@ -22,5 +22,9 @@ else
   echo "[INFO] PORTS is not set — skipping port forwarding"
 fi
 
+echo "[INFO] Enabling NAT forwarding..."
+iptables -t nat -A POSTROUTING -j MASQUERADE
+iptables -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
+
 echo "[INFO] Starting ocserv..."
 exec /opt/ocserv/sbin/ocserv -f -c /etc/ocserv/ocserv.conf

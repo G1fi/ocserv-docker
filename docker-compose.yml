@@ -1,12 +1,17 @@
+---
 services:
   ocserv:
     build: .
     container_name: ocserv
     restart: unless-stopped
+
     cap_add:
       - NET_ADMIN
     devices:
       - /dev/net/tun:/dev/net/tun
+    sysctls:
+      net.ipv4.ip_forward: "1"
+
     ports:
       - "443:443/tcp"
       - "443:443/udp"
@@ -14,3 +19,17 @@ services:
       - .env
     volumes:
       - ./config:/etc/ocserv
+    security_opt:
+      - no-new-privileges
+
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/ocserv/bin/occtl show users || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
