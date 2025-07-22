@@ -5,6 +5,8 @@ services:
     restart: unless-stopped
     cap_add:
       - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
     ports:
       - "443:443/tcp"
       - "443:443/udp"
