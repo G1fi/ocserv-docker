@@ -36,6 +36,7 @@ ocserv-docker/
 ### 1. Install Docker
 
 ```bash
+apt-get update && apt-get upgrade -y
 curl -sSL https://get.docker.com | sh
 ````
 
@@ -46,26 +47,19 @@ git clone https://github.com/gifi71/ocserv-docker.git /opt/ocserv-docker
 cd /opt/ocserv-docker
 ```
 
-### 3. Enable IP Forwarding & Optimize Host Networking (optional)
+### 3. Optimize Host Networking (optional)
 
 Edit `/etc/sysctl.conf`:
 
 ```conf
-net.ipv4.ip_forward = 1
-net.core.default_qdisc = fq
-net.ipv4.tcp_congestion_control = bbr
+net.core.default_qdisc=fq
+net.ipv4.tcp_congestion_control=bbr
 ```
 
 Apply changes:
 
 ```bash
 sysctl -p
-```
-
-Set up NAT (replace `<INTERFACE>` with your public interface, e.g., `eth0`):
-
-```bash
-iptables -t nat -A POSTROUTING -o <INTERFACE> -j MASQUERADE
 ```
 
 ---
@@ -111,7 +105,7 @@ Adjust ports, volumes, or container settings if needed.
 Start the VPN server:
 
 ```bash
-docker compose up --build -d
+docker compose up -d
 ```
 
 View container logs:
