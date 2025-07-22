@@ -42,7 +42,7 @@ curl -sSL https://get.docker.com | sh
 ### 2. Clone the Repository
 
 ```bash
-git clone https://github.com/g1fi/ocserv-docker.git /opt/ocserv-docker
+git clone https://github.com/gifi71/ocserv-docker.git /opt/ocserv-docker
 cd /opt/ocserv-docker
 ```
 
@@ -124,6 +124,7 @@ docker compose logs -f ocserv
 
 ## 🧱 TODO
 
+- [ ] Publish image to Docker Hub
 - [ ] Implement a multi-stage Docker build to reduce image size
 
 ---
