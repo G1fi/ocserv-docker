@@ -26,7 +26,7 @@ ocserv-docker/
 ├── Dockerfile             # Builds ocserv from source
 ├── entrypoint.sh          # Entrypoint script (port forwarding + server start)
 ├── LICENSE                # GNU GPLv3 license
-└── README                 # Project documentation
+└── README.md              # Project documentation
 ````
 
 ---
@@ -52,8 +52,8 @@ cd /opt/ocserv-docker
 Edit `/etc/sysctl.conf`:
 
 ```conf
-net.core.default_qdisc=fq
-net.ipv4.tcp_congestion_control=bbr
+net.core.default_qdisc = fq
+net.ipv4.tcp_congestion_control = bbr
 ```
 
 Apply changes:
