@@ -123,7 +123,6 @@ docker compose logs -f ocserv
 
 ---
 
-
 ## 📜 License
 
 This project includes `ocserv`, licensed under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html). All derivative works must also be distributed under GPLv3.
