@@ -1,7 +1,7 @@
 ---
 services:
   ocserv:
-    build: .
+    image: ghcr.io/gifi71/ocserv-docker:latest
     container_name: ocserv
     restart: unless-stopped
 
