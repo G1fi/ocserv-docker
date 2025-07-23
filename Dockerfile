@@ -32,7 +32,7 @@ RUN apt-get install -y --no-install-recommends \
     libprotobuf-c1 libgssapi-krb5-2 libk5crypto3 libkrb5-3 \
     libcom-err2 libkeyutils1 libidn2-0 libp11-kit0 libnettle8 \
     libhogweed6 libgmp10 libtasn1-6 libffi7 libcap-ng0 libcrypt1 \
-    libunistring2 libaudit1 \
+    libunistring2 libaudit1 libreadline8 libnl-3-200 libnl-route-3-200 \
     iproute2 iptables bash && \
     rm -rf /var/lib/apt/lists/*
 
