@@ -118,10 +118,11 @@ docker compose logs -f ocserv
 
 ## 🧱 TODO
 
+- [X] Implement a multi-stage Docker build to reduce image size (`430MB` -> `113MB`)
 - [ ] Publish image to Docker Hub
-- [ ] Implement a multi-stage Docker build to reduce image size
 
 ---
+
 
 ## 📜 License
 
