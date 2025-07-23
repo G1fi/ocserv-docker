@@ -38,7 +38,7 @@ ocserv-docker/
 ```bash
 apt-get update && apt-get upgrade -y
 curl -sSL https://get.docker.com | sh
-````
+```
 
 ### 2. Clone the Repository
 
@@ -102,6 +102,8 @@ Adjust ports, volumes, or container settings if needed.
 
 ## 🚀 Running the Container
 
+### Using Docker Compose
+
 Start the VPN server:
 
 ```bash
@@ -114,12 +116,31 @@ View container logs:
 docker compose logs -f ocserv
 ```
 
+### Without Docker Compose
+
+You can also run the container directly with `docker run`:
+
+```bash
+docker run -d \
+  --name ocserv \
+  --restart unless-stopped \
+  --cap-add=NET_ADMIN \
+  --device /dev/net/tun:/dev/net/tun \
+  --sysctl net.ipv4.ip_forward=1 \
+  -p 443:443/tcp \
+  -p 443:443/udp \
+  --env-file .env \
+  -v $(pwd)/config:/etc/ocserv \
+  --security-opt no-new-privileges \
+  ghcr.io/gifi71/ocserv-docker:latest
+```
+
 ---
 
 ## 🧱 TODO
 
-- [X] Implement a multi-stage Docker build to reduce image size (`430MB` -> `113MB`)
-- [ ] Publish image to Docker Hub
+- [x] Implement a multi-stage Docker build to reduce image size (`430MB` -> `113MB`)
+- [x] Publish image to GitHub Container Registry (`ghcr.io/gifi71/ocserv-docker`)
 
 ---
 
