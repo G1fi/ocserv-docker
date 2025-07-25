@@ -141,6 +141,7 @@ docker run -d \
 
 - [x] Implement a multi-stage Docker build to reduce image size (`430MB` -> `113MB`)
 - [x] Publish image to GitHub Container Registry (`ghcr.io/gifi71/ocserv-docker`)
+- [x] Improve multi-stage Docker build to reduce image size (`113MB` -> `95MB`)
 
 ---
 
